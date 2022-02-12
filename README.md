@@ -1,15 +1,17 @@
-# KrangTools
-[Krang](images/krang.jpg)
-KrangTools is a set of scripts that can be used in text processing for OCR and NLP pipeline building.
+# KranG
+![Krang](images/krang.jpg)
+KranG is a set of scripts that can be used in text processing for OCR and NLP pipeline building.
 
 # Repo notes
-The original repo is orphaned, and any future development on this project will happen here.
+A new repository has been created for all work on this OCR/NLP tool going forward. I'm still working on consolidating the disperate collection
+of scripts into one central script for better NLP pipelining.
 
-It's been a few years since I've worked on this project, but I do plan on doing some work soon, so keep an eye
-on updates here in this repo.
+Because of all of the confusion with the state of this (old) project, I've migrated all of the previously available KrangTools resources to this
+new project forevermore known as KranG. It is possible that you'll notice some remnants of the old naming scattered around the scripts, I'll also
+be working on clearing all of that out over time as well.
 
 # What Is KrangTools?
-KrangTools was originally developed to deal with CREST PDFs which do not come pre-searchable. This means that there
+KranG was originally developed to deal with CREST PDFs which do not come pre-searchable. This means that there
 are tens of thousands of files that cannot be easily reviewed by researchers.
 
 # New in this repo
