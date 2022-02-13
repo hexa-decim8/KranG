@@ -12,12 +12,13 @@ new project forevermore known as KranG. It is possible that you'll notice some r
 be working on clearing all of that out over time as well.
 
 # What Is KrangTools?
-KranG was originally developed to deal with CREST PDFs which do not come pre-searchable. This means that there
-are tens of thousands of files that cannot be easily reviewed by researchers.
+KranG was originally developed to deal with CREST PDFs which do not come as searchable documents. This means that there
+are tens of thousands of files that cannot be easily reviewed by researchers. We solve this problem through OCR, and go the 
+extra mile to help researchers by adding some basic Natural Language Processing to help them study the information.
 
 # New in this repo
 I'm merging all of the standalone scripts into one mighty python script to do all the things. Please see the features list below
-for more details.
+for more details. Once the backlog of scripting has been added to the main KranG script, I can begin working on feature requests.
  
 # Features
 * OCR
@@ -29,13 +30,14 @@ for more details.
     * sentence tokenizer - WORKING!
     * a la carte part of speech processing - Under Construction
     * stopword processing - Under Construction
-    * a la carte word processing - Under Construction
+    * word tokenizer - WORKING!
 
-Each of these features is currently provided by individual scripts. Current work is intended to press all of these
-features into a single python exe.
+Each of these features is currently provided by individual scripts (which are already available in this repo if you'd like to use them.)
+Current work is intended to press all of these features into a single python exe.
 
 # Usage
 Krang.py is currently under development, but current args include:
+```
 `--localocr`
 `--cloudocr`
 `--tokenize_sentence` - tokenizes sentences from input file
@@ -44,7 +46,7 @@ Krang.py is currently under development, but current args include:
 `--wordripper`
 `--bulk_wordripper`
 `--input` - specifies file input.
-
+```
 # Usage
 
 >python3 Krang.py --tokenize_sentence --input foo.txt
