@@ -52,7 +52,7 @@ parser.add_argument('--wordripper', action='store_true', help='Tokenizes single 
 # Bulk processing arguments
 parser.add_argument('--bulk_speechpart', action='store_true', help='Bulk part-of-speech tagging.')
 parser.add_argument('--bulk_wordripper', action='store_true', help='Tokenizes all words from the current directory of files.')
-
+#parser.add_argument('--bulk_sentence_tokenizer', action='store_true', help='Bulk sentence tokenizer.')
 
 # Additional arguments
 parser.add_argument('--input', type=str, help="input filename")
@@ -90,13 +90,26 @@ if args.stopword_filter==True:
 		print(stop_words)
 	sys.exit
 
+# Speechparts
+if args.speechparts==True:
+	with io.open('filename.txt', 'r', encoding="UTF8") as myfile:
+		data=myfile.read().replace('\n', '')
+		text = word_tokenize(data)
+		finished = nltk.pos_tag(text)
+	sys.exit
+
 #########################
 # bulk processing loopz #
 #########################
 # Cloud OCR loop
 if args.cloudocr==True:
 	print("coming soon!")
+sys.exit
 
 # Bulk sentence tokenizer
+if args.bulk_sentence_tokenizer==True:
+	print("coming soon!")
+sys.exit
+
 # Bulk wordripper
 # Bulk speechparts
