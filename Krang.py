@@ -36,20 +36,32 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 
 
 # Argparse body for flags
-parser = argparse.ArgumentParser(description='Process OCR & NLP needs.')
+parser = argparse.ArgumentParser(description='Process files for OCR & NLP needs!')
+
+# OCR arguments
 parser.add_argument('--localocr', action='store_true', help='Process all pdfs in the current directory with OCR using local resources.')
 parser.add_argument('--cloudocr', action='store_true', help='Process OCR in Google Cloud.')
-parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out full sentences from raw text files.')
-parser.add_argument('--bulk_speechpart', action='store_true', help='Bulk part-of-speech tagging.')
+
+# Single file arguments
+parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out full sentences from a single raw text file.')
 parser.add_argument('--stopword_filter', action='store_true', help='Tokenizes stopwords from input text.')
 parser.add_argument('--wordripper', action='store_true', help='Tokenizes single words from a single input text file.')
+#parser.add_argument('--speechpart', action='store_true', help='part-of-speech tagging for a single file.')
+#parser.add_argument('--crypto_digraphs', action'store_true', help='searches for cryptonym digraphs (in testing).')
+
+# Bulk processing arguments
+parser.add_argument('--bulk_speechpart', action='store_true', help='Bulk part-of-speech tagging.')
 parser.add_argument('--bulk_wordripper', action='store_true', help='Tokenizes all words from the current directory of files.')
+
+
+# Additional arguments
 parser.add_argument('--input', type=str, help="input filename")
+
 args = parser.parse_args()
 
-#################################
-# What u know about loopz mfer? #
-#################################
+############################
+# What u know about loopz? #
+############################
 # Local OCR loop
 if args.localocr==True:
 	for f in glob.glob("*.pdf"):
@@ -78,3 +90,13 @@ if args.stopword_filter==True:
 		print(stop_words)
 	sys.exit
 
+#########################
+# bulk processing loopz #
+#########################
+# Cloud OCR loop
+if args.cloudocr==True:
+	print("coming soon!")
+
+# Bulk sentence tokenizer
+# Bulk wordripper
+# Bulk speechparts

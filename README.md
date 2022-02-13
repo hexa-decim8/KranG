@@ -11,8 +11,8 @@ Because of all of the confusion with the state of this (old) project, I've migra
 new project forevermore known as KranG. It is possible that you'll notice some remnants of the old naming scattered around the scripts, I'll also
 be working on clearing all of that out over time as well.
 
-# What Is KrangTools?
-KranG was originally developed to deal with CREST PDFs which do not come as searchable documents. This means that there
+# What Is KranG?
+Previously known as 'KrangTools', KranG was originally developed to deal with CREST PDFs which do not come as searchable documents. This means that there
 are tens of thousands of files that cannot be easily reviewed by researchers. We solve this problem through OCR, and go the 
 extra mile to help researchers by adding some basic Natural Language Processing to help them study the information.
 
@@ -38,14 +38,14 @@ Current work is intended to press all of these features into a single python exe
 # Usage
 Krang.py is currently under development, but current args include:
 ```
-`--localocr`
-`--cloudocr`
-`--tokenize_sentence` - tokenizes sentences from input file
-`--bulk_speechpart`
-`--stopword_filter`
-`--wordripper`
-`--bulk_wordripper`
-`--input` - specifies file input.
+`--localocr` - Runs OCR processing over files using local resources
+`--cloudocr` - Runs OCR processing over files using Google Docs cloud OCR resources
+`--tokenize_sentence` - Tokenizes sentences from input file
+`--bulk_speechpart` - Part of speech processing for a directory of files
+`--stopword_filter`- Processes stopwords from a single file
+`--wordripper` - Word tokenizer for individual files
+`--bulk_wordripper` - Bulk word tokenizer
+`--input` - Specifies file input
 ```
 # Usage
 
