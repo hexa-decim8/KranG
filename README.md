@@ -1,5 +1,6 @@
 # KranG
 ![Krang](images/krang.jpg)
+
 KranG is a set of scripts that can be used in text processing for OCR and NLP pipeline building.
 
 # Repo notes

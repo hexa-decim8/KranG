@@ -1,7 +1,6 @@
 # Library imports
 import argparse
 import ocrmypdf
-import glob, os
 import subprocess
 import httplib2
 import os
@@ -10,6 +9,9 @@ import shutil
 import time
 import sys
 from nltk.tokenize import sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize, word_tokenize
+
 # from __future__ import print_function
 # from apiclient import discovery
 # from oauth2client import client
@@ -39,9 +41,9 @@ parser.add_argument('--localocr', action='store_true', help='Process all pdfs in
 parser.add_argument('--cloudocr', action='store_true', help='Process OCR in Google Cloud.')
 parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out full sentences from raw text files.')
 parser.add_argument('--bulk_speechpart', action='store_true', help='Bulk part-of-speech tagging.')
-parser.add_argument('--stopword_filter', action='store_true', help='Removes stopwords from input text.')
-parser.add_argument('--wordripper', action='store_true', help='Word tokenizer.')
-parser.add_argument('--bulk_wordripper', action='store_true', help='Rips tokenized words out of the current directory of files.')
+parser.add_argument('--stopword_filter', action='store_true', help='Tokenizes stopwords from input text.')
+parser.add_argument('--wordripper', action='store_true', help='Tokenizes single words from a single input text file.')
+parser.add_argument('--bulk_wordripper', action='store_true', help='Tokenizes all words from the current directory of files.')
 parser.add_argument('--input', type=str, help="input filename")
 args = parser.parse_args()
 
@@ -61,3 +63,18 @@ if args.tokenize_sentence==True:
 		data=myfile.read().replace('\n', '')
 		print(sent_tokenize(data))
 	sys.exit()
+
+# Single file wordripper
+if args.wordripper==True:
+	with io.open(args.input, 'r', encoding="UTF8") as myfile:
+		data=myfile.read()
+		print(word_tokenize(data))
+	sys.exit()
+
+# Stopword filter
+if args.stopword_filter==True:
+	with open(args.input, 'r', encoding="UTF8") as myfile:
+		stop_words = set(stopwords.words("english"))
+		print(stop_words)
+	sys.exit
+
