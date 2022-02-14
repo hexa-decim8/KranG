@@ -28,8 +28,8 @@ for more details. Once the backlog of scripting has been added to the main KranG
     * bulk part of speech processing - Under Construction
     * bulk word processing - Under Construction
     * sentence tokenizer - WORKING!
-    * a la carte part of speech processing - Under Construction
-    * stopword processing - Under Construction
+    * single file part of speech processing - WORKING!
+    * stopword processing - WORKING!
     * word tokenizer - WORKING!
 
 Each of these features is currently provided by individual scripts (which are already available in this repo if you'd like to use them.)
@@ -45,6 +45,7 @@ Krang.py is currently under development, but current args include:
 `--stopword_filter`- Processes stopwords from a single file
 `--wordripper` - Word tokenizer for individual files
 `--bulk_wordripper` - Bulk word tokenizer
+`--speechpart` - part-of-speech tagging for a single file
 `--input` - Specifies file input
 ```
 # Usage
