@@ -8,9 +8,9 @@ import io
 import shutil
 import time
 import sys
+import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
-from nltk.tokenize import sent_tokenize, word_tokenize
 
 # from __future__ import print_function
 # from apiclient import discovery
@@ -46,7 +46,7 @@ parser.add_argument('--cloudocr', action='store_true', help='Process OCR in Goog
 parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out full sentences from a single raw text file.')
 parser.add_argument('--stopword_filter', action='store_true', help='Tokenizes stopwords from input text.')
 parser.add_argument('--wordripper', action='store_true', help='Tokenizes single words from a single input text file.')
-#parser.add_argument('--speechpart', action='store_true', help='part-of-speech tagging for a single file.')
+parser.add_argument('--speechpart', action='store_true', help='part-of-speech tagging for a single file.')
 #parser.add_argument('--crypto_digraphs', action'store_true', help='searches for cryptonym digraphs (in testing).')
 
 # Bulk processing arguments
@@ -91,11 +91,12 @@ if args.stopword_filter==True:
 	sys.exit
 
 # Speechparts
-if args.speechparts==True:
-	with io.open('filename.txt', 'r', encoding="UTF8") as myfile:
+if args.speechpart==True:
+	with open(args.input, 'r', encoding="UTF8") as myfile:
 		data=myfile.read().replace('\n', '')
 		text = word_tokenize(data)
 		finished = nltk.pos_tag(text)
+		print(finished)
 	sys.exit
 
 #########################
@@ -107,9 +108,9 @@ if args.cloudocr==True:
 sys.exit
 
 # Bulk sentence tokenizer
-if args.bulk_sentence_tokenizer==True:
-	print("coming soon!")
-sys.exit
+#if args.bulk_sentence_tokenizer==True:
+#	print("coming soon!")
+#sys.exit
 
 # Bulk wordripper
 # Bulk speechparts
