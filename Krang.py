@@ -9,6 +9,7 @@ import shutil
 import time
 import sys
 import nltk
+import re
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 
@@ -47,7 +48,7 @@ parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out f
 parser.add_argument('--stopword_filter', action='store_true', help='Tokenizes stopwords from input text.')
 parser.add_argument('--wordripper', action='store_true', help='Tokenizes single words from a single input text file.')
 parser.add_argument('--speechpart', action='store_true', help='part-of-speech tagging for a single file.')
-#parser.add_argument('--crypto_digraphs', action'store_true', help='searches for cryptonym digraphs (in testing).')
+#parser.add_argument('--crypto_trigraphs', action'store_true', help='searches for cryptonym trigraphs (in testing).')
 
 # Bulk processing arguments
 parser.add_argument('--bulk_speechpart', action='store_true', help='Bulk part-of-speech tagging.')
@@ -62,6 +63,7 @@ args = parser.parse_args()
 ############################
 # What u know about loopz? #
 ############################
+
 # Local OCR loop
 if args.localocr==True:
 	for f in glob.glob("*.pdf"):
@@ -102,6 +104,7 @@ if args.speechpart==True:
 #########################
 # bulk processing loopz #
 #########################
+
 # Cloud OCR loop
 if args.cloudocr==True:
 	print("coming soon!")
@@ -114,3 +117,39 @@ sys.exit
 
 # Bulk wordripper
 # Bulk speechparts
+
+################
+# Experimental #
+################
+
+# Single file trigraph finder
+
+if args.crypto_trigraph==True:
+	with open(args.input, 'r', encoding="UTF8") as f:
+	data=f.read().replace('\n', '')
+	text = word_tokenize(data)
+	finished = nltk.pos_tag(text)
+	print(finished)
+
+for line in finished:
+    match = re.search('[A-Z]{4,}', 'NNP'', line)
+    print(match)
+#    if match:
+#        new_line=match.group() + '\n'
+#        print(match)
+
+# Bulk trigraph finder
+for filename in os.listdir("."):
+	if filename.endswith(".txt"):
+		with io.open(filename, 'r', encoding="UTF8") as f:
+			data=f.read().replace('\n', '')
+			text = word_tokenize(data)
+			finished = nltk.pos_tag(text)
+			print(finished)
+
+for line in finished:
+    match = re.search('[A-Z]{4,}', 'NNP'', line)
+    print(match)
+#    if match:
+#        new_line=match.group() + '\n'
+#        print(match)
