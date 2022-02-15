@@ -48,7 +48,7 @@ parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out f
 parser.add_argument('--stopword_filter', action='store_true', help='Tokenizes stopwords from input text.')
 parser.add_argument('--wordripper', action='store_true', help='Tokenizes single words from a single input text file.')
 parser.add_argument('--speechpart', action='store_true', help='part-of-speech tagging for a single file.')
-#parser.add_argument('--crypto_trigraphs', action'store_true', help='searches for cryptonym trigraphs (in testing).')
+parser.add_argument('--crypto_trigraphs', action='store_true', help='searches for cryptonym trigraphs (in testing).')
 
 # Bulk processing arguments
 parser.add_argument('--bulk_speechpart', action='store_true', help='Bulk part-of-speech tagging.')
@@ -123,33 +123,36 @@ sys.exit
 ################
 
 # Single file trigraph finder
-
+# I'm going to have to reconstruct the pipeline here. I think it starts with a part of speech processed text file.
+# So it should look like, input > part of speech output
 if args.crypto_trigraph==True:
 	with open(args.input, 'r', encoding="UTF8") as f:
-	data=f.read().replace('\n', '')
-	text = word_tokenize(data)
-	finished = nltk.pos_tag(text)
-	print(finished)
+		data=f.read().replace('\n', '')
+# This part tokenizes the part of speech processed text file
+		text = word_tokenize(data)
+		finished = nltk.pos_tag(text)
+		print(finished)
 
 for line in finished:
-    match = re.search('[A-Z]{4,}', 'NNP'', line)
+    match = re.search('[A-Z]{4,}', 'NNP', line)
     print(match)
 #    if match:
 #        new_line=match.group() + '\n'
 #        print(match)
 
 # Bulk trigraph finder
-for filename in os.listdir("."):
-	if filename.endswith(".txt"):
-		with io.open(filename, 'r', encoding="UTF8") as f:
-			data=f.read().replace('\n', '')
-			text = word_tokenize(data)
-			finished = nltk.pos_tag(text)
-			print(finished)
+# This feature is nowhere near ready
+#for filename in os.listdir("."):
+#	if filename.endswith(".txt"):
+#		with io.open(filename, 'r', encoding="UTF8") as f:
+#			data=f.read().replace('\n', '')
+#			text = word_tokenize(data)
+#			finished = nltk.pos_tag(text)
+#			print(finished)
 
-for line in finished:
-    match = re.search('[A-Z]{4,}', 'NNP'', line)
-    print(match)
+#for line in finished:
+#    match = re.search('[A-Z]{4,}', 'NNP', line)
+#    print(match)
 #    if match:
 #        new_line=match.group() + '\n'
 #        print(match)
