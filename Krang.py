@@ -63,6 +63,11 @@ args = parser.parse_args()
 ############################
 # What u know about loopz? #
 ############################
+# Convert PDF documents to text files
+if args.localocr==True:
+	with open(args.input)
+	os.system('ocrmypdf input.pdf - | tee output.pdf | pdftotext - output.txt')
+sys.exit()
 
 # Local OCR loop
 if args.localocr==True:
