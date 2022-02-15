@@ -23,14 +23,17 @@ for more details. Once the backlog of scripting has been added to the main KranG
 # Features
 * OCR
     * Local OCR processing - WORKING!
-    * Google Cloud OCR processing - Under Construction
+    * Google Cloud OCR processing - work in progress
+    * OCR to text file converter - WORKING!
 * NLP
-    * bulk part of speech processing - Under Construction
-    * bulk word processing - Under Construction
+    * bulk part of speech processing - work in progress
+    * bulk word processing - work in progress
     * sentence tokenizer - WORKING!
-    * a la carte part of speech processing - Under Construction
-    * stopword processing - Under Construction
+    * single file part of speech processing - WORKING!
+    * stopword processing - WORKING!
     * word tokenizer - WORKING!
+* Experimental
+    * cryptonym trigaph parser - work in progress
 
 Each of these features is currently provided by individual scripts (which are already available in this repo if you'd like to use them.)
 Current work is intended to press all of these features into a single python exe.
@@ -40,6 +43,7 @@ Krang.py is currently under development, but current args include:
 ```
 `--localocr` - Runs OCR processing over files using local resources
 `--cloudocr` - Runs OCR processing over files using Google Docs cloud OCR resources
+`--ocrconvert` - Converts pdf document input to text file 
 `--tokenize_sentence` - Tokenizes sentences from input file
 `--bulk_speechpart` - Part of speech processing for a directory of files
 `--stopword_filter`- Processes stopwords from a single file

@@ -42,7 +42,7 @@ parser = argparse.ArgumentParser(description='Process files for OCR & NLP needs!
 # OCR arguments
 parser.add_argument('--localocr', action='store_true', help='Process all pdfs in the current directory with OCR using local resources.')
 parser.add_argument('--cloudocr', action='store_true', help='Process OCR in Google Cloud.')
-parser.add_argument('--ocrconvert', action='store_true', help='Test.')
+parser.add_argument('--ocrconvert', action='store_true', help='Converts single pdf to a text file. Also outputs a separate OCRd pdf file')
 
 # Single file arguments
 parser.add_argument('--tokenize_sentence', action='store_true', help='Rips out full sentences from a single raw text file.')
@@ -64,6 +64,7 @@ args = parser.parse_args()
 ############################
 # What u know about loopz? #
 ############################
+
 # Convert PDF documents to text files
 if args.ocrconvert==True:
 	os.system('ocrmypdf ' + args.input + ' - | tee output.pdf | pdftotext - output.txt')
