@@ -131,7 +131,7 @@ sys.exit
 # Single file trigraph finder
 # I'm going to have to reconstruct the pipeline here. I think it starts with a part of speech processed text file.
 # So it should look like, input > part of speech output
-if args.crypto_trigraph==True:
+if args.crypto_trigraphs==True:
 	with open(args.input, 'r', encoding="UTF8") as f:
 		data=f.read().replace('\n', '')
 # This part tokenizes the part of speech processed text file
