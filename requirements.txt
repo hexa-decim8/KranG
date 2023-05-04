@@ -1,5 +1,4 @@
 ocrmypdf
 argparse
-ocrmypdf
 httplib2
 nltk
