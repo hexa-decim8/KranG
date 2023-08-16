@@ -112,9 +112,9 @@ if args.speechpart==True:
 #########################
 
 # Cloud OCR loop
-if args.cloudocr==True:
-	print("coming soon!")
-sys.exit
+#if args.cloudocr==True:
+#	print("coming soon!")
+#sys.exit
 
 # Bulk sentence tokenizer
 #if args.bulk_sentence_tokenizer==True:

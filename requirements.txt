@@ -2,3 +2,4 @@ ocrmypdf
 argparse
 httplib2
 nltk
+httplib2
